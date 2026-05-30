@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <style>
-    .checkmark { fill: none; stroke: #9cff7a; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 30; stroke-dashoffset: 30; }
-    @keyframes draw { to { stroke-dashoffset: 0; } }
-    svg .checkmark { animation: draw .6s ease-out forwards; }
-    svg:hover .checkmark { animation: draw .6s ease-out forwards; }
-  </style>
-  <path class="checkmark" d="M5 13l4 4L19 7"/>
-</svg>
