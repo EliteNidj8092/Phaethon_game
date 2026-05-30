@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <style>
+    .heart-left { fill: none; stroke: #ff3b5c; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .heart-right { fill: none; stroke: #cc3350; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    @keyframes break { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-.8px,0); } }
+    @keyframes break-r { 0%,100% { transform: translate(0,0); } 50% { transform: translate(.8px,0); } }
+    svg:hover .left-half { animation: break 1.5s ease-in-out infinite; }
+    svg:hover .right-half { animation: break-r 1.5s ease-in-out infinite; }
+  </style>
+  <g class="left-half">
+    <path class="heart-left" d="M12 16V8.5l-2-2.5-2.5 2C5 10 5 13.5 7.5 16L12 19.5"/>
+  </g>
+  <g class="right-half">
+    <path class="heart-right" d="M12 16v-6l1.5-1.5 2 1.5c2.5 2 2.5 5.5 0 8L12 19.5"/>
+  </g>
+</svg>

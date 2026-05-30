@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .tri { fill:none; stroke:#ff8c00; stroke-width:1.5; stroke-linejoin:round; }
+      .excl { fill:#ff8c00; stroke:none; }
+      .alert { animation: alert 1s ease-in-out infinite; }
+      @keyframes alert {
+        0%,100% { filter:drop-shadow(0 0 1px #ff8c00); }
+        50% { filter:drop-shadow(0 0 6px #ff8c00); }
+      }
+    </style>
+  </defs>
+  <g class="alert">
+    <polygon class="tri" points="12,2 22,20 2,20" fill="none"/>
+    <rect class="excl" x="10.8" y="8" width="2.4" height="6" rx="0.6"/>
+    <circle class="excl" cx="12" cy="17" r="1.2"/>
+  </g>
+</svg>

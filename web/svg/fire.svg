@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <style>
+    @keyframes burn {
+      0%,100% { opacity: 0.8; }
+      25% { opacity: 1; }
+      50% { opacity: 0.7; }
+      75% { opacity: 0.9; }
+    }
+    @keyframes spread {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+    }
+    .burn { animation: burn 1s ease-in-out infinite; transform-origin: 12px 18px; }
+    .spread { animation: spread 1.5s ease-in-out infinite; transform-origin: 12px 18px; }
+  </style>
+  <g class="spread">
+    <path d="M12,2 Q8,9 7,14 Q6,19 12,22 Q18,19 17,14 Q16,9 12,2Z" fill="#ff6020" class="burn"/>
+    <path d="M12,6 Q10,11 9.5,15 Q9,19 12,21 Q15,19 14.5,15 Q14,11 12,6Z" fill="#ff8020"/>
+    <path d="M12,9 Q11,13 10.5,16 Q10,19 12,20.5 Q14,19 13.5,16 Q13,13 12,9Z" fill="#ffff00"/>
+  </g>
+</svg>

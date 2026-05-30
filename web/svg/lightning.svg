@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <style>
+    @keyframes jolt {
+      0%,100% { transform:translate(0,0); }
+      10% { transform:translate(1.5px,-.5px); }
+      20% { transform:translate(-1px,.8px); }
+      30% { transform:translate(.5px,-1px); }
+      40% { transform:translate(-1.2px,-.3px); }
+      50% { transform:translate(1px,.5px); }
+      60% { transform:translate(-.5px,-.8px); }
+      70% { transform:translate(.8px,.6px); }
+      80% { transform:translate(-.8px,-.4px); }
+      90% { transform:translate(.3px,1px); }
+    }
+    @keyframes glow-pulse {
+      0%,100% { opacity:.5; filter:drop-shadow(0 0 2px #ffcc00); }
+      50% { opacity:1; filter:drop-shadow(0 0 6px #fff); }
+    }
+    .jolt { animation:jolt .15s ease-in-out infinite; }
+    .glow { animation:glow-pulse 1s ease-in-out infinite; }
+  </style>
+  <g>
+    <polygon class="glow" points="13 2 4 14 11 14 9 22 20 9 13 10 15 2" fill="#ffcc00" stroke="#ffcc00" stroke-width=".5" stroke-linejoin="round"/>
+    <polygon points="13 2 4 14 11 14 9 22 20 9 13 10 15 2" fill="none" stroke="#ffcc00" stroke-width="1" stroke-linejoin="round" opacity=".8"/>
+  </g>
+</svg>

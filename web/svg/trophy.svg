@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <style>
+    .trophy-body { fill: none; stroke: #ffcc00; stroke-width: 2; stroke-linejoin: round; }
+    .trophy-rim { fill: none; stroke: #ffdd44; stroke-width: 1.5; stroke-linecap: round; }
+    .trophy-star { fill: #ffdd44; }
+    @keyframes shine { 0%,100% { filter: drop-shadow(0 0 1px #ffcc00); } 50% { filter: drop-shadow(0 0 5px #ffd700); } }
+    svg:hover .trophy-group { animation: shine 1.5s ease-in-out infinite; }
+  </style>
+  <g class="trophy-group">
+    <path class="trophy-body" d="M7 4h10v6c0 2.8-2.2 5-5 5s-5-2.2-5-5V4z"/>
+    <path class="trophy-body" d="M7 4H5.5C4.7 4 4 4.7 4 5.5v1c0 .8.7 1.5 1.5 1.5H7"/>
+    <path class="trophy-body" d="M17 4h1.5c.8 0 1.5-.7 1.5-1.5v-1c0-.8-.7-1.5-1.5-1.5H17"/>
+    <path class="trophy-rim" d="M9 15h6v4H9z"/>
+    <path class="trophy-rim" d="M8 19h8v1H8z"/>
+    <polygon class="trophy-star" points="12,0.5 13.5,4 17.5,4 14.5,6.5 15.5,10 12,8 8.5,10 9.5,6.5 6.5,4 10.5,4"/>
+  </g>
+</svg>

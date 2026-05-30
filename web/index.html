@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phaethon V4.0</title>
+    <link rel="stylesheet" href="/web/css/style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- 左侧面板 -->
+        <div class="panel side-panel">
+            <h1>PHAETHON V4.0</h1>
+            <div class="turn a" id="turnLabel">BLUE · YOUR TURN</div>
+
+            <!-- 蓝方 -->
+            <div class="faction">
+                <div class="fname"><span><img src="/web/svg/diamond.svg" class="svg-icon" style="width:10px;height:10px"> BLUE</span><span class="tag">YOU</span></div>
+                <div class="hpbar">
+                    <div class="hpfill" id="hpFillA" style="width:100%"></div>
+                    <div class="hptext" id="hpTextA">50 / 50</div>
+                </div>
+            </div>
+            <!-- V4.0 蓝方羽 -->
+            <div class="feather-section" id="featherSectionB" style="display:none">
+                <div class="feather-label"><img src="/web/svg/feather-icon.svg" class="svg-icon"> BLUE·深渊之羽</div>
+                <div class="hpbar feather-hpbar">
+                    <div class="hpfill" id="featherHPBarB" style="width:100%"></div>
+                    <div class="hptext" id="featherHPTextB">20/20</div>
+                </div>
+                <div class="legend" id="featherInfoB">aty:0 | 快动:0/2</div>
+            </div>
+
+            <!-- 红方 -->
+            <div class="faction">
+                <div class="fname"><span><img src="/web/svg/diamond.svg" class="svg-icon" style="width:10px;height:10px;color:#DC143C"> RED</span><span class="tag">AI</span></div>
+                <div class="hpbar">
+                    <div class="hpfill red" id="hpFillB" style="width:100%"></div>
+                    <div class="hptext" id="hpTextB">50 / 50</div>
+                </div>
+            </div>
+            <!-- V4.0 红方羽 -->
+            <div class="feather-section" id="featherSectionR" style="display:none">
+                <div class="feather-label"><img src="/web/svg/feather-icon.svg" class="svg-icon"> RED·深渊之羽</div>
+                <div class="hpbar feather-hpbar">
+                    <div class="hpfill red" id="featherHPBarR" style="width:100%"></div>
+                    <div class="hptext" id="featherHPTextR">20/20</div>
+                </div>
+                <div class="legend" id="featherInfoR">aty:0 | 快动:0/2</div>
+            </div>
+
+            <div>
+                <h2>RULES V4.0</h2>
+                <div class="legend">
+                    <b><img src="/web/svg/crystal.svg" class="svg-icon"> 破绽跳板</b> → 活三生成暗子虚拟跳板<br>
+                    <b><img src="/web/svg/shield.svg" class="svg-icon"> 截击过载</b> → 截击封印+过载伤害+5额外封印<br>
+                    <b><img src="/web/svg/herb.svg" class="svg-icon"> 星轨贯穿</b> → 3层充能贯穿至边缘封印4敌<br>
+                    <b><img src="/web/svg/eye.svg" class="svg-icon"> 阵眼共鸣</b> → 40回合后伤害+4回血3施加Debuff<br>
+                    <b><img src="/web/svg/feather-icon.svg" class="svg-icon"> 深渊之羽</b> → 4暗子召唤，伤害分摊，快速行动<br>
+                    <b>HP 归零</b> 或棋盘满时高 HP 胜
+                </div>
+            </div>
+            <button class="btn" onclick="resetGame()"><img src="/web/svg/undo.svg" class="svg-icon" style="width:12px;height:12px;vertical-align:middle"> RESTART</button>
+            <button class="btn" onclick="toggleAI()" id="aiBtn"><img src="/web/svg/gear.svg" class="svg-icon"> AI: ON</button>
+            <button class="btn danger" onclick="undoMove()" id="undoBtn" disabled><img src="/web/svg/undo.svg" class="svg-icon"> UNDO</button>
+            <button class="btn detonate-btn" onclick="detonateFeather()" id="detonateBtn" style="display:none"><img src="/web/svg/explosion.svg" class="svg-icon"> 引爆深渊之羽</button>
+        </div>
+
+        <!-- 中央棋盘 -->
+        <div id="stage">
+            <div class="entry-curtain" id="entryCurtain"><div class="entry-ring"></div><div class="entry-ring"></div><div class="entry-ring"></div></div>
+            <canvas id="boardCanvas"></canvas>
+            <div class="screen-flash" id="screenFlash"></div>
+            <div id="toast"></div>
+            <div class="fast-action-badge" id="fastActionBadge" style="display:none"><img src="/web/svg/lightning.svg" class="svg-icon"> FAST ACTION 待命</div>
+            <div class="pending-badge" id="pendingBadge" style="display:none"><img src="/web/svg/lightning.svg" class="svg-icon"> INCOMING · 截击窗口开放</div>
+            <div class="win-overlay" id="winOverlay">
+                <div class="win-title" id="winTitle">VICTORY</div>
+                <button class="btn" onclick="resetGame()" style="padding:12px 36px;font-size:13px">PLAY AGAIN</button>
+            </div>
+        </div>
+
+        <!-- 右侧面板 -->
+        <div class="panel side-panel">
+            <h2>BATTLE LOG</h2>
+            <div class="log" id="logContainer"></div>
+            <h2>STATUS</h2>
+            <div class="legend" id="statusText">等待开局...</div>
+            <div class="legend">
+                <img src="/web/svg/crystal.svg" class="svg-icon"> 暗子: <b id="phantomInfo">-</b> &nbsp;|&nbsp; <img src="/web/svg/shield.svg" class="svg-icon"> 截击链: <b id="counterStreakInfo">-</b>
+            </div>
+            <div class="legend">
+                <img src="/web/svg/herb.svg" class="svg-icon"> 环境: <b id="envCount">0</b> &nbsp;|&nbsp; <img src="/web/svg/lightning.svg" class="svg-icon" style="width:12px;height:12px">充能(B/R): <b id="chargeInfo">0/0</b> &nbsp;|&nbsp; 棋子: <b id="pieceCount">0</b>
+            </div>
+            <div class="legend">
+                回合: <b id="turnCountDisplay">0</b> &nbsp;|&nbsp;
+                <span id="hypoxiaBadge" style="display:none;color:#ff8c00;"><img src="/web/svg/wind.svg" class="svg-icon"> 缺氧</span> &nbsp;|&nbsp;
+                <span id="eyeBadge" style="display:none;color:#c084fc;"><img src="/web/svg/eye.svg" class="svg-icon"> 阵眼</span>
+            </div>
+            <div class="legend">
+                <img src="/web/svg/lock.svg" class="svg-icon"> 封印: <b id="sealedCount">0</b>
+            </div>
+            <!-- V4.0 Buff/Debuff -->
+            <div class="legend buff-display" id="buffDisplay">Buff: -</div>
+            <div class="legend debuff-display" id="debuffDisplay">Debuff: -</div>
+            <div class="legend v4-footer">V4.0 · 真伤上限8 | 深渊之羽</div>
+        </div>
+    </div>
+
+    <script src="/web/js/G.js"></script>
+    <script src="/web/js/state.js"></script>
+    <script src="/web/js/logic.js"></script>
+    <script src="/web/js/ai.js"></script>
+    <script src="/web/js/particles.js"></script>
+    <script src="/web/js/render.js"></script>
+    <script src="/web/js/main.js"></script>
+    <script src="/web/js/network.js"></script>
+</body>
+</html>

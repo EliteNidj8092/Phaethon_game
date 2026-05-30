@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <style>
+    @keyframes iris-glow {
+      0%,100% { opacity:.3; }
+      50% { opacity:1; r:4; }
+    }
+    @keyframes ring-rotate {
+      to { transform:rotate(360deg); }
+    }
+    @keyframes pupil-shift {
+      0%,100% { transform:translate(0,0); }
+      25% { transform:translate(1.2px,-.6px); }
+      50% { transform:translate(-.8px,1px); }
+      75% { transform:translate(-1px,-.4px); }
+    }
+    .awaken .iris-ring { animation:iris-glow 1s ease-in-out infinite; }
+    .awaken .rays { animation:ring-rotate 4s linear infinite; transform-origin:12px 12px; }
+    .look .pupil { animation:pupil-shift 2s ease-in-out infinite; }
+  </style>
+  <path class="rays" d="M12 2L12 4 M12 20L12 22 M2 12L4 12 M20 12L22 12 M5 5L6.4 6.4 M17.6 17.6L19 19 M19 5L17.6 6.4 M6.4 17.6L5 19" stroke="#c084fc" stroke-width=".7" stroke-linecap="round" opacity=".5"/>
+  <ellipse cx="12" cy="12" rx="7" ry="5.5" fill="none" stroke="#c084fc" stroke-width="1.3"/>
+  <ellipse cx="12" cy="12" rx="6.3" ry="4.8" fill="none" stroke="#c084fc" stroke-width=".5" opacity=".4"/>
+  <g class="pupil">
+    <circle cx="12" cy="12" r="3" fill="#c084fc" opacity=".2"/>
+    <circle cx="12" cy="12" r="2.2" fill="#c084fc"/>
+    <circle cx="10.5" cy="11" r=".8" fill="#fff" opacity=".5"/>
+  </g>
+  <path class="iris-ring" d="M9 12 Q12 9 15 12" fill="none" stroke="#c084fc" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

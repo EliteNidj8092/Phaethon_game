@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .tag { fill:none; stroke:#ffcc00; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; transform-origin:6px 12px; }
+      .tag-swing { animation: swing 1.5s ease-in-out infinite alternate; }
+      @keyframes swing {
+        0% { transform:rotate(-8deg); }
+        100% { transform:rotate(8deg); }
+      }
+    </style>
+  </defs>
+  <g class="tag tag-swing">
+    <path d="M3 5v14l8-5 8 5V5a2 2 0 00-2-2H5a2 2 0 00-2 2z"/>
+    <circle cx="6" cy="7" r="1" fill="#ffcc00" stroke="none"/>
+  </g>
+</svg>

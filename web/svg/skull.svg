@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <style>
+    @keyframes flash-eyes {
+      0%,40%,100% { fill:#ff0040; }
+      20% { fill:#fff; }
+    }
+    @keyframes pulse-scale {
+      0%,100% { transform:scale(1); }
+      50% { transform:scale(1.07); }
+    }
+    .lethal .eye { animation:flash-eyes .4s ease-in-out infinite; }
+    .pulse { animation:pulse-scale 1.5s ease-in-out infinite; transform-origin:12px 12px; }
+  </style>
+  <g>
+    <path class="pulse" d="M12 2C8 2 4 5 3 9c-.8 2.5 0 5 2 6.5V18c0 1.5 1 2.5 2.5 2.5C8 19 9 19 9.5 19h5c.5 0 1.5 0 2 1.5 1.5 0 2.5-1 2.5-2.5v-2.5c2-1.5 2.8-4 2-6.5C20 5 16 2 12 2z" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"/>
+    <circle class="eye" cx="8.5" cy="10" r="1.8" fill="#ffffff"/>
+    <circle class="eye" cx="15.5" cy="10" r="1.8" fill="#ffffff"/>
+    <circle cx="8.5" cy="10" r=".7" fill="#1a1a2e"/>
+    <circle cx="15.5" cy="10" r=".7" fill="#1a1a2e"/>
+    <path d="M11.5 13.5L12 15.5L12.5 13.5" fill="none" stroke="#ffffff" stroke-width=".8" stroke-linecap="round"/>
+    <line x1="7" y1="17.5" x2="17" y2="17.5" stroke="#ffffff" stroke-width=".8" stroke-linecap="round"/>
+    <line x1="8" y1="19" x2="16" y2="19" stroke="#ffffff" stroke-width=".5" stroke-linecap="round"/>
+  </g>
+</svg>

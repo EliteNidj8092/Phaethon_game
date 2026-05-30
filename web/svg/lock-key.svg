@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <style>
+    .lock-body { fill: none; stroke: #c0c0d0; stroke-width: 2; stroke-linejoin: round; }
+    .lock-shackle { fill: none; stroke: #c0c0d0; stroke-width: 2; stroke-linecap: round; }
+    .key-body { fill: none; stroke: #ffcc00; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .key-head { fill: none; stroke: #ffcc00; stroke-width: 1.5; }
+    @keyframes unlock { 0%,100% { transform: rotate(0deg); } 50% { transform: rotate(15deg); } }
+    svg:hover .key { animation: unlock 1s ease-in-out infinite; transform-origin: 12px 16px; }
+  </style>
+  <path class="lock-shackle" d="M8 8V6a4 4 0 0 1 8 0v2"/>
+  <rect class="lock-body" x="6" y="8" width="12" height="9" rx="2"/>
+  <circle class="lock-body" cx="12" cy="13" r="1.5" fill="#c0c0d0"/>
+  <path class="lock-body" d="M12 14v1.5" stroke="#c0c0d0" stroke-width="1" stroke-linecap="round"/>
+  <g class="key">
+    <circle class="key-head" cx="9" cy="19" r="2.5"/>
+    <circle class="key-head" cx="9" cy="19" r="1" fill="#ffcc00"/>
+    <path class="key-body" d="M11.5 19H15l1.5-1.5-1-1-1 1V16l1-1-1-1v-.5"/>
+  </g>
+</svg>

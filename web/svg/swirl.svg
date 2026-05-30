@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .swirl { fill:none; stroke:#c084fc; stroke-width:1.2; stroke-linecap:round; transform-origin:12px 12px; }
+      .spin { animation: spin 3s linear infinite; }
+      @keyframes spin {
+        0% { transform:rotate(0deg); stroke-dasharray:0 100; }
+        25% { stroke-dasharray:25 100; }
+        50% { stroke-dasharray:50 100; }
+        75% { stroke-dasharray:75 100; }
+        100% { transform:rotate(360deg); stroke-dasharray:100 100; }
+      }
+    </style>
+  </defs>
+  <path class="swirl spin" d="M12 12 Q13 10 15 10 Q17 10 17 12 Q17 14 15 15 Q12 16 10 15 Q7 13 7 11 Q7 8 10 7 Q13 6 16 8 Q19 10 19 13 Q19 17 15 19 Q11 21 7 19 Q4 17 4 13"/>
+</svg>
